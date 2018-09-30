@@ -30,3 +30,7 @@
 .daily-weather-container{
   display: flex;
 }
+.day-container{
+  display:flex;
+  flex-direction: column;
+}

@@ -22,6 +22,7 @@ class App extends Component {
     let weather;
     get5DayWeather(cityStr).then(resp => {
       weather = [];
+      console.log(resp);
       for(let i = 0; i <resp.list.length; i += 8){
         weather.push(JSON.stringify(resp.list[i]));
       }
@@ -40,7 +41,7 @@ class App extends Component {
       const today = d.getDay();
       const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       DailyWeather = this.state.weather.map( (daily, i) => (
-        <DailyComponent weather={daily} day={daysOfWeek[(parseInt(today) + i) % 7]}/>
+        <DailyComponent key={i} weather={daily} day={daysOfWeek[(parseInt(today, 10) + i) % 7]}/>
       ));
     }
     return (

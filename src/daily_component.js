@@ -3,11 +3,11 @@ import React,{Component} from "react";
 class DailyComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {weather: null};
+    this.state = {weatherObj: null};
   }
 
   componentDidMount(){
-    this.setState({weather: JSON.parse(this.props.weather)});
+    this.setState({weatherObj: JSON.parse(this.props.weather)});
   }
 
   render() {
@@ -15,28 +15,34 @@ class DailyComponent extends Component {
     let temp_min;
     let temp_max;
     let day;
-    if(this.state.weather){
+    let icon;
+    let description;
+    if(this.state.weatherObj){
       day = this.props.day;
-      date = this.state.weather.dt_txt.split(" ")[0].split("-").slice(1).join("/");
-      temp_min = this.state.weather.main.temp_min;
-      temp_max = this.state.weather.main.temp_max;
+      date = this.state.weatherObj.dt_txt.split(" ")[0].split("-").slice(1).join("/");
+      temp_min = this.state.weatherObj.main.temp_min;
+      temp_max = this.state.weatherObj.main.temp_max;
+      icon = <img src = {`http://openweathermap.org/img/w/${this.state.weatherObj.weather[0].icon}.png`} />;
+      description = this.state.weatherObj.weather[0].description;
     }
     return(
-      <div>
-        <li>
-          {day}
-        </li>
-        <li>
-          {date}
-        </li>
-        <li>
-          {temp_min}
-
-        </li>
-        <li>
-          {temp_max}
-
-        </li>
+      <div className="day-container">
+          <div>
+            {day}
+          </div>
+          <div>
+            {date}
+          </div>
+          <div>
+            {temp_min}
+          </div>
+          <div>
+            {temp_max}
+          </div>
+          <div>
+            {icon}
+            {description}
+          </div>
       </div>
     );
   }
