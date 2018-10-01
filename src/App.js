@@ -7,7 +7,7 @@ import DailyComponent from "./daily_component";
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {city: "", weather: null, currCity: null};
+    this.state = {city: "", weather: null, currCity: null, hourlyWeather: null};
     this.handleChange = this.handleChange.bind(this);
     this.grabWeather = this.grabWeather.bind(this);
   }
@@ -26,7 +26,7 @@ class App extends Component {
       for(let i = 0; i <resp.list.length; i += 8){
         weather.push(JSON.stringify(resp.list[i]));
       }
-      return {weather: weather, currCity: resp.city.name};
+      return {weather: weather, currCity: resp.city.name, hourlyWeather: resp.list};
 
     }).then((newResp) => {
       this.setState({weather: newResp.weather, currCity: newResp.currCity});
@@ -41,13 +41,15 @@ class App extends Component {
       const today = d.getDay();
       const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       DailyWeather = this.state.weather.map( (daily, i) => (
-        <DailyComponent key={i} weather={daily} day={daysOfWeek[(parseInt(today, 10) + i) % 7]}/>
+        <DailyComponent id={i} key={i} weather={daily} day={daysOfWeek[(parseInt(today, 10) + i) % 7]}/>
       ));
     }
     return (
       <div className="App">
-        <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input City"/>
-        <button onClick={this.grabWeather}>Submit</button>
+        <div className="app-top-bar">
+          <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input City"/>
+          <button onClick={this.grabWeather}>Submit</button>
+        </div>
         <div className="daily-weather-container">
           {DailyWeather}
         </div>

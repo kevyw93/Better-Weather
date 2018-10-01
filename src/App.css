@@ -26,11 +26,35 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.app-top-bar{
+  height: 50px;
+}
+
+#root{
+  height: 100vh;
+  width: 100vw;
+}
+
+.App{
+  height: 100%;
+  width: 100%;
+}
 
 .daily-weather-container{
   display: flex;
+  height: 100%;
+  justify-content: space-around;
 }
+
+.dayofweek{
+  font-size: 32px;
+  padding: 13px;
+}
+
 .day-container{
-  display:flex;
   flex-direction: column;
+  background-color: lightblue;
+  height: 300px;
+  width: 200px;
+  display: flex;
 }
