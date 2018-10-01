@@ -44,17 +44,66 @@
   display: flex;
   height: 100%;
   justify-content: space-around;
+  color:white;
+}
+.description{
+  text-transform: capitalize;
+}
+
+.weather-img{
+  width: 80px;
 }
 
 .dayofweek{
-  font-size: 32px;
-  padding: 13px;
+  /* font-size: 32px; */
+  padding: 7px 13px;
+}
+
+.dayofweek h1{
+  margin-bottom: 0;
+}
+.dayofweek h4{
+  margin-top: 0;
 }
 
 .day-container{
   flex-direction: column;
   background-color: lightblue;
-  height: 300px;
+  height: 350px;
   width: 200px;
   display: flex;
+  border-radius: 20px;
+}
+
+.temp-container{
+  display: flex;
+  flex-direction: column;
+}
+.temp-inner-container{
+  display: flex;
+  justify-content: space-around;
+  height: 35px;
+  align-items: center;
+}
+.temp{
+  display: flex;
+}
+.max-min{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35px;
+}
+
+/* found something from w3school and tweaked it a bit to fit my use*/
+.dot{
+  margin-top: 18px;
+  height: 5px;
+  width: 5px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid grey;
+  margin-left: 1px;
+  margin-right: 1px;
 }

@@ -29,7 +29,7 @@ class App extends Component {
       return {weather: weather, currCity: resp.city.name, hourlyWeather: resp.list};
 
     }).then((newResp) => {
-      this.setState({weather: newResp.weather, currCity: newResp.currCity});
+      this.setState({weather: newResp.weather, currCity: newResp.currCity, city:""});
     });
 
   }
@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="app-top-bar">
-          <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input City"/>
+          <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input Location"/>
           <button onClick={this.grabWeather}>Submit</button>
         </div>
         <div className="daily-weather-container">
