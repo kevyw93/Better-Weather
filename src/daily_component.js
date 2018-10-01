@@ -1,14 +1,6 @@
 import React,{Component} from "react";
 
 class DailyComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {weatherObj: null};
-  }
-
-  componentDidMount(){
-    this.setState({weatherObj: JSON.parse(this.props.weather)});
-  }
 
   render() {
     let date;
@@ -17,20 +9,23 @@ class DailyComponent extends Component {
     let day;
     let icon;
     let description;
-    if(this.state.weatherObj){
+
+    if(this.props.weather){
+      const weatherObj = JSON.parse(this.props.weather);
       day = this.props.day;
-      date = this.state.weatherObj.dt_txt.split(" ")[0].split("-").slice(1).join("/");
-      temp_min = this.state.weatherObj.main.temp_min;
-      temp_max = this.state.weatherObj.main.temp_max;
-      icon = <img className="weather-img" alt="weather-icon" src = {`http://openweathermap.org/img/w/${this.state.weatherObj.weather[0].icon}.png`} />;
-      description = this.state.weatherObj.weather[0].description;
+      date = weatherObj.dt_txt.split(" ")[0].split("-").slice(1).join("/");
+      temp_min = weatherObj.main.temp_min;
+      temp_max = weatherObj.main.temp_max;
+      icon = <img className="weather-img" alt="weather-icon" src = {`http://openweathermap.org/img/w/${weatherObj.weather[0].icon}.png`} />;
+      description = weatherObj.weather[0].description;
     }
+
     return(
       <div className="day-container">
           <div className="dayofweek">
             <h1>{day}</h1> <h4>{date}</h4>
           </div>
-          <div>
+          <div className="descrip-icon">
             <div>{icon}</div>
             <h4 className="description">{description}</h4>
           </div>

@@ -22,14 +22,14 @@ class App extends Component {
     let weather;
     get5DayWeather(cityStr).then(resp => {
       weather = [];
-      console.log(resp);
+      console.log(resp.list);
       for(let i = 0; i <resp.list.length; i += 8){
         weather.push(JSON.stringify(resp.list[i]));
       }
       return {weather: weather, currCity: resp.city.name, hourlyWeather: resp.list};
 
     }).then((newResp) => {
-      this.setState({weather: newResp.weather, currCity: newResp.currCity, city:""});
+      this.setState({weather: newResp.weather, currCity: newResp.currCity, city:"", hourlyWeather: newResp.hourlyWeather});
     });
 
   }
@@ -45,15 +45,18 @@ class App extends Component {
       ));
     }
     return (
-      <div className="App">
-        <div className="app-top-bar">
-          <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input Location"/>
-          <button onClick={this.grabWeather}>Submit</button>
-        </div>
-        <div className="daily-weather-container">
+      <main className="App">
+        <section className="app-top-bar">
+          <h1 className="app-title">Better Weather</h1>
+          <div className ="input-container">
+            <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input Location"/>
+            <button onClick={this.grabWeather}><i className="fa fa-search fa-2x" aria-hidden="true"></i></button>
+          </div>
+        </section>
+        <section className="daily-weather-container">
           {DailyWeather}
-        </div>
-      </div>
+        </section>
+      </main>
     );
   }
 }
