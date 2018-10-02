@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     let DailyWeather;
     if(this.state.load){
-      DailyWeather = <img alt="loading gif" src="https://cdn.dribbble.com/users/547544/screenshots/2718569/loading.gif"/>;
+      DailyWeather = <img className="loading-img" alt="loading gif" src="https://cdn.dribbble.com/users/547544/screenshots/2718569/loading.gif"/>;
     }else if(this.state.weather){
       const d = new Date();
       const today = d.getDay();
@@ -48,7 +48,7 @@ class App extends Component {
         <DailyComponent id={i} key={i} weather={daily} day={daysOfWeek[(parseInt(today, 10) + i) % 7]}/>
       ));
     }else{
-      DailyWeather = <main className="onLoad">Hey There! Enter A Location Above!</main>;
+      DailyWeather = <main className="onload"><h1 className="onload-text">Hey There! Enter A Location Above!</h1></main>;
     }
     return (
       <main className="App">
