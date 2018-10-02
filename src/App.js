@@ -48,7 +48,7 @@ class App extends Component {
         <DailyComponent id={i} key={i} weather={daily} day={daysOfWeek[(parseInt(today, 10) + i) % 7]}/>
       ));
     }else{
-      DailyWeather = <main>Hey There! Enter A Location</main>;
+      DailyWeather = <main className="onLoad">Hey There! Enter A Location Above!</main>;
     }
     return (
       <main className="App">
