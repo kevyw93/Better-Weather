@@ -2,9 +2,9 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kevinwu.site/Weather-App/",
+  "homepage": "http://kevyw93.github.io/Weather-App",
   "devDependencies": {
-    "gh-pages": "^1.0.0",
+    "gh-pages": "^1.2.0",
     "react-scripts": "1.0.13"
   },
   "dependencies": {
