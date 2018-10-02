@@ -271,7 +271,7 @@
     height: 100px;
   }
   .daily-weather-container{
-    height: 540px;
+    height: 490px;
     overflow:scroll;
     background-color: rgb(106,157,256);
   }
