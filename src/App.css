@@ -30,7 +30,8 @@
 #root{
   height: 100vh;
   width: 100vw;
-  background-color: #347bd5;
+  /* background-color: #347bd5; */
+  background-color: rgb(106,157,256);
 }
 
 .app-top-bar{
@@ -272,6 +273,6 @@
   .daily-weather-container{
     height: 640px;
     overflow:scroll;
-    background-color: #347bd5;
+    background-color: rgb(106,157,256);
   }
 }
