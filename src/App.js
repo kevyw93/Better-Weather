@@ -7,7 +7,7 @@ import DailyComponent from "./daily_component";
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {city: "", weather: null, currCity: null, hourlyWeather: null};
+    this.state = {city: "", weather: null, currCity: null};
     this.handleChange = this.handleChange.bind(this);
     this.grabWeather = this.grabWeather.bind(this);
   }
@@ -22,14 +22,13 @@ class App extends Component {
     let weather;
     get5DayWeather(cityStr).then(resp => {
       weather = [];
-      console.log(resp.list);
       for(let i = 0; i <resp.list.length; i += 8){
         weather.push(JSON.stringify(resp.list[i]));
       }
-      return {weather: weather, currCity: resp.city.name, hourlyWeather: resp.list};
+      return {weather: weather, currCity: resp.city.name};
 
     }).then((newResp) => {
-      this.setState({weather: newResp.weather, currCity: newResp.currCity, city:"", hourlyWeather: newResp.hourlyWeather});
+      this.setState({weather: newResp.weather, currCity: newResp.currCity, city:""});
     });
 
   }
