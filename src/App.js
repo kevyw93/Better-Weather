@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     let DailyWeather;
     if(this.state.load){
-      DailyWeather = <img src="https://cdn.dribbble.com/users/547544/screenshots/2718569/loading.gif"/>;
+      DailyWeather = <img alt="loading gif" src="https://cdn.dribbble.com/users/547544/screenshots/2718569/loading.gif"/>;
     }else if(this.state.weather){
       const d = new Date();
       const today = d.getDay();
