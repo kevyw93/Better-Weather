@@ -266,12 +266,12 @@
   }
 }
 
-@media (max-width: 1060px) and (max-height: 640px){
+@media (max-width: 1060px) and (max-height: 540px){
   .day-container{
     height: 100px;
   }
   .daily-weather-container{
-    height: 640px;
+    height: 540px;
     overflow:scroll;
     background-color: rgb(106,157,256);
   }
