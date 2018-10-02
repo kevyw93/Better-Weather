@@ -176,5 +176,73 @@
   }
   .App .dayofweek{
     text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .temp h3{
+    font-size: 13px;
+  }
+  .max-min h3{
+    font-size: 15px;
+  }
+  .dot{
+    margin-top: 8px;
+  }
+  .dayofweek h1{
+    font-size: 16px;
+  }
+  .dayofweek h4{
+    font-size: 12px;
+  }
+  .temp-container{
+    margin: 0 10px;
+  }
+  .weather-img{
+    width: 40px;
+  }
+
+  .descrip-icon h4{
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .temp h3{
+    font-size: 10px;
+  }
+  .max-min h3{
+    font-size: 12px;
+  }
+  .dot{
+    margin-top: 8px;
+  }
+  .dayofweek h1{
+    font-size: 13px;
+  }
+  .dayofweek h4{
+    font-size: 10px;
+  }
+  .temp-container{
+    margin: 0 10px;
+  }
+  .weather-img{
+    width: 30px;
+  }
+
+  .descrip-icon h4{
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-height: 640px){
+  .day-container{
+    height: 100px;
+  }
+  .daily-weather-container{
+    height: 640px;
+    overflow:scroll;
+    background-color: #347bd5;
   }
 }
