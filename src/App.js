@@ -16,7 +16,6 @@ class App extends Component {
     return (e) => this.setState({[field]: e.target.value});
   }
 
-
   grabWeather(e){
     e.preventDefault();
     this.setState({load: true, city: ""});

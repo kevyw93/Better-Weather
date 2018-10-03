@@ -8,10 +8,11 @@
 ### Want to use it by downloading/running it on localhost
   1. Go to https://github.com/kevyw93/Better-Weather.
   2. Click on clone and download zipfile and then unzip file.
-  3. Go into the right directory of the file. (If using MAC OS, you can open terminal type cd and drag file into terminal then press enter.)
-  4. In terminal you can type in npm install to install the packages.
-  5. Type in npm start and a browser should pop up with the app.
-  6. Type in a location! Happy using Better Weather app!
+  3. Make sure javaScript is enabled.
+  4. Go into the right directory of the file. (If using MAC OS, you can open terminal type cd and drag file into terminal then press enter.)
+  5. In terminal you can type in npm install to install the packages.
+  6. Type in npm start and a browser should pop up with the app.
+  7. Type in a location! Happy using Better Weather app!
 
 ## Initial Thought Process
 I brainstormed on what technologies to use and decided on using React, HTML, CSS. I decided that I did not need Redux because it was a simple app where I can maintain local state on the top most component.
@@ -38,13 +39,17 @@ My local state consist of a boolean that tells me if I am in loading stage which
 App Component packages each day json data into strings and passes each into a daily component. This in turns allows me to render the 5 different daily components on the DOM.  
 DailyComponent receives, parses and renders a day of the week from App Component as well as temperature, description of the weather and icon.
 
+### Responsive Design
+I used HTML5 and media queries to essentially make it website responsive for laptop/computer, tablet, and phone sizes.
+
 ### Deployment
 I used the packages gh-pages to help me deploy my app on github page.
 
 
 ## Future Directions/Given More Time
 ### TDD
-If given more time I would build this app uÂsing test driven development where I would create Jasmine specs for api methods and each class to help prevent technical debt in the future if I build upon this app even more.
+If given more time I would build this app using test driven development using Jasmine specs for api methods and each class to mitigate technical debt.
+
 ### Features
   1. If given the monetary compensation and time I would pay for a membership with openweathermap and then expand it to allow for 16 days.
 
