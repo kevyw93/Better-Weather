@@ -31,8 +31,8 @@ class App extends Component {
     }).then((newResp) => {
       this.setState({weather: newResp.weather, currCity: newResp.currCity, city:"", load: false});
     }).catch(() => {
-      this.setState({load: false});
-      alert("Not a valid location.");
+      this.setState({load: false, currCity: null, weather: null});
+      alert("Not a valid location. Check if spelling is correct!");
     }), 2000);
   }
 
