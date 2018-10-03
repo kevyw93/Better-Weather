@@ -19,7 +19,7 @@ class App extends Component {
 
   grabWeather(e){
     e.preventDefault();
-    this.setState({load: true});
+    this.setState({load: true, city: ""});
     const cityStr = this.state.city;
     let weather;
     setTimeout(() => get5DayWeather(cityStr).then(resp => {
@@ -29,7 +29,7 @@ class App extends Component {
       }
       return {weather: weather, currCity: resp.city.name};
     }).then((newResp) => {
-      this.setState({weather: newResp.weather, currCity: newResp.currCity, city:"", load: false});
+      this.setState({weather: newResp.weather, currCity: newResp.currCity, load: false});
     }).catch(() => {
       this.setState({load: false, currCity: null, weather: null});
       alert("Not a valid location. Check if spelling is correct!");
@@ -55,8 +55,11 @@ class App extends Component {
         <section className="app-top-bar">
           <h1 className="app-title">Better Weather</h1>
           <div className ="input-container">
-            <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input Location"/>
-            <button onClick={this.grabWeather}><i className="fa fa-search fa-2x" aria-hidden="true"></i></button>
+            <form onSubmit={this.grabWeather}>
+              <input value={this.state.city} onChange={this.handleChange("city")} placeholder="Input Location"/>
+            <button type="submit"><i className="fa fa-search fa-2x" aria-hidden="true"></i></button>
+
+            </form>
           </div>
         </section>
         <section className="daily-weather-container">
