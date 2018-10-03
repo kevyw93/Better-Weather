@@ -80,7 +80,6 @@
   height: calc(100% - 80px);
   justify-content: space-around;
   color: white;
-  overflow: scroll;
   align-items: center;
 }
 
